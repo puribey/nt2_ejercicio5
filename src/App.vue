@@ -87,15 +87,14 @@ export default {
       this.restart();
     },
     onClickColor(color) {
-      if (color === this.pickedColor) {
-        this.messageDisplay = "You Picked Right!";
-        this.colors = this.colors.map(() => this.pickedColor);
-        this.restartButton = "Play Again!";
-        this.headerColor = this.pickedColor;
-      } else {
-        this.colors = this.colors.map((c) => (c === color ? "#232323" : c));
-        this.messageDisplay = "Try Again!";
-      }
+      const isRight = color === this.pickedColor;
+
+      this.messageDisplay = isRight ? "You Picked Right!" : "Try Again!";
+      this.colors = this.colors.map((c) =>
+        isRight ? this.pickedColor : c === color ? "#232323" : c
+      );
+      this.restartText = isRight ? "Play Again!" : "New Colors!";
+      this.headerColor = isRight ? this.pickedColor : "steelblue";
     },
   },
   computed: {},

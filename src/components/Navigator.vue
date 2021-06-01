@@ -36,7 +36,7 @@ export default {
   margin-top: -30px;
 }
 #message {
-  color: #ffffff;
+  color: #000000;
   display: inline-block;
   width: 20%;
 }
